@@ -13,16 +13,16 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 
-#nltk.download('stopwords')
-#nltk.download('wordnet')
-#nltk.download('words')
+nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('words')
 
-geniusToken = 'MUtakF0ShKREXrR5MSC1_vrsCpWwcx0MBh5k9GINn2WT2tYqqsQ9kfJy5C8Lr2Gv'
+geniusToken = 'TOKEN'
 genius = lyricsgenius.Genius(geniusToken, verbose=False, remove_section_headers=True, skip_non_songs=True,
                              excluded_terms=["(Remix)", "(Live)"])
 # spotify auth:
-client_id = "d57ce86eacaf4f4282d1da003edc2275"
-client_secret = "1e8652aa32dc4c4a94bab6613bf8f085"
+client_id = "TOKEN"
+client_secret = "TOKEN"
 
 analyzer = SentimentIntensityAnalyzer()
 
