@@ -1,0 +1,8 @@
+/venv
+/tmp
+debug.log
+/.idea
+config.py
+/__pycache__/
+/static/img
+.cache
