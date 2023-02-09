@@ -107,9 +107,6 @@ def show_info(playlist):
 
 
 def get_wordcloud(playlist):
-    import time
-    start_time = time.time()
-
     stopwords_wc = ('im', 'ill', 'll', 'i m', 'it s', 'ive got', 'm')
     wc = WordCloud(background_color="white", colormap="Dark2",
                    max_font_size=100, min_font_size=10, stopwords=stopwords_wc,
@@ -125,7 +122,5 @@ def get_wordcloud(playlist):
     pl = get_playlist(playlist).replace("https://open.spotify.com/playlist/", "")
 
     wc.to_file(f'static/img/wc-{pl}.jpg')
-
-    print("--- %s seconds ---" % (time.time() - start_time))
 
     return f'static/img/wc-{pl}.jpg'
