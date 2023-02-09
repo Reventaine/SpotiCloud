@@ -7,4 +7,3 @@ config.py
 /static/img
 .cache
 Dockerfile
-config.py
