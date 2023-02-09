@@ -16,7 +16,7 @@ Copy the code from repo and navigate in terminal to the code directory.<br> To i
 
 ## Using Docker
 
-<code>docker pull reventaine/spoticloud</code>
+<code>docker pull reventaine/spoticloud</code><br>
 <code>docker run -p 5000:5000 -d reventaine/spoticloud</code>
 
 Access on <code>http://localhost:5000/</code>
