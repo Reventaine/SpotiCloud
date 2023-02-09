@@ -19,9 +19,9 @@ from config import geniusToken, client_secret, client_id
 
 
 # For the first use you need to download this:
-nltk.download('stopwords')
-nltk.download('wordnet')
-nltk.download('words')
+# nltk.download('stopwords')
+# nltk.download('wordnet')
+# nltk.download('words')
 
 d = enchant.Dict("en")
 analyzer = SentimentIntensityAnalyzer()
@@ -41,13 +41,20 @@ def get_playlist(playlist):
 
 
 def preprocess_text(text):
-    stop_words = set(stopwords.words('english'))
-    exclude = set(string.punctuation)
-    lemma = WordNetLemmatizer()
+    try:
+        stop_words = set(stopwords.words('english'))
+        exclude = set(string.punctuation)
+        lemma = WordNetLemmatizer()
 
-    stopwordremoval = " ".join([i for i in text.lower().split() if i not in stop_words])
-    punctuationremoval = ''.join(ch for ch in stopwordremoval if ch not in exclude)
-    normalized = " ".join(lemma.lemmatize(word) for word in punctuationremoval.split())
+        stopwordremoval = " ".join([i for i in text.lower().split() if i not in stop_words])
+        punctuationremoval = ''.join(ch for ch in stopwordremoval if ch not in exclude)
+        normalized = " ".join(lemma.lemmatize(word) for word in punctuationremoval.split())
+
+    except:
+        nltk.download('stopwords')
+        nltk.download('wordnet')
+        nltk.download('words')
+        preprocess_text(text)
 
     return normalized
 
