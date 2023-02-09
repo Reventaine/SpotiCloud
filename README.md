@@ -14,6 +14,13 @@ content of your playlists.<br>
 Copy the code from repo and navigate in terminal to the code directory.<br> To install the required packages, run the following command in your terminal:
 <br><code>pip install -r requirements.txt</code>
 
+## Using Docker
+
+<code>docker pull reventaine/spoticloud</code>
+<code>docker run -p 5000:5000 -d reventaine/spoticloud</code>
+
+Access on <code>http://localhost:5000/</code>
+
 ## Usage
 
 To run the application, navigate to the project directory and run the following command in your terminal: <br><code>python webapp.py</code> <br>
