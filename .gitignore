@@ -7,3 +7,5 @@ config.py
 /static/img
 .cache
 Dockerfile
+.flaskenv
+app.yaml

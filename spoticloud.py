@@ -19,9 +19,9 @@ from config import geniusToken, client_secret, client_id
 
 
 # For the first use you need to download this:
-# nltk.download('stopwords')
-# nltk.download('wordnet')
-# nltk.download('words')
+nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('words')
 
 d = enchant.Dict("en")
 analyzer = SentimentIntensityAnalyzer()
@@ -70,7 +70,7 @@ def get_lyrics(track, shared_dict, lock):
 
 
 def get_words(playlist):
-    results = sp.playlist_items(get_playlist(playlist), fields='items', limit=50)['items']
+    results = sp.playlist_items(get_playlist(playlist), fields='items', limit=20)['items']
 
     manager = multiprocessing.Manager()
     shared_dict = manager.dict()
