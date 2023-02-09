@@ -18,3 +18,5 @@ Copy the code from repo and navigate in terminal to the code directory.<br> To i
 
 To run the application, navigate to the project directory and run the following command in your terminal: <br><code>python webapp.py</code> <br>
 This will start the Flask development server and you can access the application in your web browser.
+
+![Alt text](SpotiCloud/static/Screenshot 2023-02-09 125259.jpg?raw=true "Optional Title")
