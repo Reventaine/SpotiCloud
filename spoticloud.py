@@ -14,6 +14,7 @@ from wordcloud import WordCloud
 import enchant
 import multiprocessing
 import string
+import concurrent.futures
 
 from config import geniusToken, client_secret, client_id
 
@@ -83,14 +84,9 @@ def get_words(playlist):
     shared_dict = manager.dict()
     lock = multiprocessing.Lock()
 
-    processes = []
-    for idx, track in enumerate(results, start=1):
-        process = multiprocessing.Process(target=get_lyrics, args=(track['track'], shared_dict, lock))
-        processes.append(process)
-        process.start()
-
-    for process in processes:
-        process.join()
+    with concurrent.futures.ThreadPoolExecutor(max_workers=len(results)) as executor:
+        futures = [executor.submit(get_lyrics, track['track'], shared_dict, lock) for idx, track in enumerate(results, start=1)]
+        concurrent.futures.wait(futures)
 
     return shared_dict
 
